@@ -1,3 +1,15 @@
 <h1>
   {{title}}
 </h1>
+
+<input type="button" value="Add" (click)="add()">
+
+<ul>
+  <li *ngFor="let item of items$ | async">
+    {{ item.$key }}
+    <input type="button" value="Delete" (click)="delete(item.$key)">
+    <input type="button" value="Update" (click)="update(item.$key)">
+    <input type="button" value="Set" (click)="set(item.$key)">
+    <pre>{{ item | json }}</pre>
+  </li>
+</ul>
